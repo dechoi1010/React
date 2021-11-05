@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- React JS : make application INTERACTIVE
+    React-dom : library나 package, react element를 html body에 둘수있도록-->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.querySelector("#root");
+
+    // JSX
+    const Title = (
+      <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+        Hello I'm a title
+      </h3>
+    );
+    const Button = (
+      <button
+        style={{ backgroundColor: "tomato" }}
+        onClick={() => console.log("im clicked")}
+      >
+        Click Me
+      </button>
+    );
+
+    /*
+    const btn = React.createElement(
+      "button",
+      {
+        // property에 event listener를 등록
+        onClick: () => console.log("im clicked"),
+        style: { backgroundColor: "tomato" },
+      },
+      "Click Me"
+    ); */
+    const container = React.createElement("div", null, [Title, Button]);
+    ReactDOM.render(container, root);
+  </script>
+</html>
